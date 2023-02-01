@@ -6,14 +6,15 @@ spring:
     name: alibaba-order
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/alibaba?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
-    username: alibaba
-    password: alibaba
+    url: jdbc:mysql://192.168.44.77:3306/alibaba?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: root
     type: com.alibaba.druid.pool.DruidDataSource
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: 192.168.44.77:8848
+
 
 # MP配置
 mybatis-plus:

@@ -1,4 +1,4 @@
-import com.yulanshenhai.util.Result;
+import com.xiao.util.Result;
 import org.junit.Test;
 
 /**

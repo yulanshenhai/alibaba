@@ -7,7 +7,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost
+        server-addr: 192.168.44.77:8848
     gateway:
       discovery:
         locator:
@@ -21,6 +21,12 @@ spring:
             - Age=16,80
           filters:
             - StripPrefix=1
+            - AddRequestHeader=a,1
+            - AddRequestParameter=b,2
+            - AddResponseHeader=c,3
+            - SetResponseHeader=d,4
+            - SetStatus=2000
+            - Req=true,true
         - id: order-route
           uri: lb://alibaba-order
           order: 1

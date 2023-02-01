@@ -14,13 +14,20 @@
     <!--本项目-->
     <artifactId>alibaba-user</artifactId>
 
-    <!--依赖-->
+    <!--三方依赖-->
     <dependencies>
+
         <!--引入我们自己写的alibaba-common子项目-->
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>alibaba-common</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--spring-boot-starter-web-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <!--spring-cloud-starter-alibaba-nacos-discovery-->
@@ -29,7 +36,7 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!--`com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel`-->
+        <!--spring-cloud-starter-alibaba-sentinel-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
@@ -40,6 +47,13 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+
+        <!--spring-cloud-starter-sleuth-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

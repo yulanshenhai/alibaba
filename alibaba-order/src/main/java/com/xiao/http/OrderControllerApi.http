@@ -1,0 +1,9 @@
+POST http://localhost:8000/alibaba-order/api/v1/order/insert
+Content-Type: application/json
+
+{
+  "username" : "zhaosi",
+  "productId" : "1",
+  "number" : "5"
+}
+

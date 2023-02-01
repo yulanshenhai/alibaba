@@ -14,6 +14,12 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.44.77:8848
+  zipkin:
+    base-url: http://192.168.44.77:9411 # Zipkin服务端地址
+    discovery-client-enabled: false # 不向Nacos注册此服务
+  sleuth:
+    sampler:
+      probability: 1.0 # 采样的百分比设置为100%采样
 
 # MP配置
 mybatis-plus:

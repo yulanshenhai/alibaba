@@ -10,6 +10,7 @@
         <module>alibaba-product</module>
         <module>alibaba-order</module>
         <module>alibaba-gateway</module>
+        <module>alibaba-rocketmq</module>
     </modules>
 
     <!--父项目-->

@@ -1,0 +1,4 @@
+GET http://localhost:8002/api/v1/rocketmq/producer/send-msg?msg=大家好&topic=topic-test&tag=tag-test
+Accept: application/json
+
+###

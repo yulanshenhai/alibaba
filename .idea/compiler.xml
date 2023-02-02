@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="alibaba-rocketmq" />
         <module name="alibaba-user" />
         <module name="alibaba-common" />
         <module name="alibaba-order" />
@@ -21,6 +22,7 @@
       <module name="alibaba-gateway" options="-parameters" />
       <module name="alibaba-order" options="-parameters" />
       <module name="alibaba-product" options="-parameters" />
+      <module name="alibaba-rocketmq" options="-parameters" />
       <module name="alibaba-user" options="-parameters" />
       <module name="yulanshenhai-alibaba" options="" />
     </option>

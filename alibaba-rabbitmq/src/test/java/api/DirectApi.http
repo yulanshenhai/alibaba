@@ -1,0 +1,22 @@
+### 测试直连模式
+GET http://localhost:8001/api/v1/rabbitmq/direct/send-msg?msg=一条直连消息
+Accept: application/json
+
+### 测试广播模式
+GET http://localhost:8001/api/v1/rabbitmq/fanout/send-msg?msg=一条广播消息
+Accept: application/json
+
+### 测试主题模式
+# routingKey=xiao: 仅队列B收到消息
+# routingKey=xiao.a: 队列A/队列B全都收到消息
+# routingKey=xiao.a.b: 仅队列B收到消息
+GET http://localhost:8001/api/v1/rabbitmq/topic/send-msg?msg=一条主题-广播消息&routingKey=xiao
+Accept: application/json
+
+### 测试请求头模式 - 队列A
+GET http://localhost:8001/api/v1/rabbitmq/headers/send-msg?msg=一条请求头-广播消息&routingKey={"key_one": "java", "key_two": "rabbit"}
+Accept: application/json
+
+### 测试请求头模式 - 队列B
+GET http://localhost:8001/api/v1/rabbitmq/headers/send-msg?msg=一条请求头-广播消息&routingKey={"headers_A": "coke"}
+Accept: application/json

@@ -1,6 +1,5 @@
 package com.xiao.consumer;
 
-import com.xiao.RocketmqConstant;
 import org.apache.rocketmq.spring.annotation.ConsumeMode;
 import org.apache.rocketmq.spring.annotation.MessageModel;
 import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
@@ -13,14 +12,16 @@ import org.springframework.stereotype.Component;
 @Component
 @RocketMQMessageListener(
         // 消费者组名
-        consumerGroup = RocketmqConstant.CONSUMER_GROUP_TEST,
+        consumerGroup = "test-consumer-group",
         // 监听的主题名
-        topic = RocketmqConstant.TOPIC_TEST,
+        topic = "test-topic",
         // 监听的标签名，默认为 `*` 表示监听全部标签
-        selectorExpression = RocketmqConstant.TAG_TEST,
-        // 同组的消费者并发接收消息，默认值，改为ConsumeMode.ORDERLY表示按顺序接收消息
+        selectorExpression = "test-tag",
+        // 并发模式CONCURRENTLY: 同组消费者并发接收消息，默认值
+        // 顺序模式ORDERLY: 同组消费者按顺序接收消息
         consumeMode = ConsumeMode.CONCURRENTLY,
-        // 同组的消费者平均分摊消费该消息，默认值，改为MessageModel.BROADCASTING表示全部消费该消息
+        // 集群模式CLUSTERING: 同组消费者平均分摊消费消息，默认值
+        // 广播模式BROADCASTING: 同组消费者没人消费一次消息
         messageModel = MessageModel.CLUSTERING
 )
 public class ConsumerServerA implements RocketMQListener<String> {

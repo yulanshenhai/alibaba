@@ -11,6 +11,7 @@
         <module>alibaba-order</module>
         <module>alibaba-gateway</module>
         <module>alibaba-rocketmq</module>
+        <module>alibaba-rabbitmq</module>
     </modules>
 
     <!--父项目-->

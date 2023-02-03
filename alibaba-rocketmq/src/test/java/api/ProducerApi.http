@@ -1,4 +1,34 @@
-GET http://localhost:8002/api/v1/rocketmq/producer/send-msg?msg=大家好&topic=topic-test&tag=tag-test
+### 测试发送消息
+
+GET http://localhost:8002/api/v1/rocketmq/producer/convert-and-send?msg=大家好&topic=test-topic&tag=test-tag
 Accept: application/json
 
-###
+### 测试同步-随机消息
+
+GET http://localhost:8002/api/v1/rocketmq/producer/sync-send?msg=一条同步消息&topic=test-topic&tag=sync
+Accept: application/json
+
+### 测试异步-随机消息
+
+GET http://localhost:8002/api/v1/rocketmq/producer/async-send?msg=一条异步消息&topic=test-topic&tag=async
+Accept: application/json
+
+### 测试单向-随机消息
+
+GET http://localhost:8002/api/v1/rocketmq/producer/send-one-way?msg=一条单向消息&topic=test-topic&tag=one-way
+Accept: application/json
+
+### 测试同步-顺序消息
+
+GET http://localhost:8002/api/v1/rocketmq/producer/sync-send-orderly?msg=同步消息&topic=test-topic&tag=aync-orderly
+Accept: application/json
+
+### 测试异步-顺序消息
+
+GET http://localhost:8002/api/v1/rocketmq/producer/async-send-orderly?msg=异步消息&topic=test-topic&tag=async-orderly
+Accept: application/json
+
+### 测试单向-顺序消息
+
+GET http://localhost:8002/api/v1/rocketmq/producer/send-one-way-orderly?msg=单向消息&topic=test-topic&tag=one-way-orderly
+Accept: application/json

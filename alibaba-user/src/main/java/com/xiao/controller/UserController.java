@@ -9,6 +9,7 @@ import com.xiao.util.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -113,5 +114,4 @@ public class UserController {
         log.info("响应：分页查到部分用户的记录: {}", userPage);
         return userPage != null ? Result.ok(userPage) : Result.fail(-1, "查询失败");
     }
-
 }

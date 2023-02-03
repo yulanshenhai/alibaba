@@ -25,6 +25,12 @@ spring:
     sampler:
       probability: 1.0 # 采样的百分比设置为100%采样
 
+  rabbitmq:
+    host: 192.168.44.77 # RabbitMQ服务端IP地址
+    port: 5672 # RabbitMQ端口号
+    username: admin # RabbitMQ管控台账号
+    password: admin # RabbitMQ管控台账号
+
 # MP配置
 mybatis-plus:
   type-aliases-package: com.alibaba.entity

@@ -1,32 +1,32 @@
-# 基本配置
-server:
-  port: 8020
-spring:
-  application:
-    name: alibaba-product
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.44.77:3306/alibaba?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
-    username: root
-    password: root
-  #    type: com.alibaba.druid.pool.DruidDataSource
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 192.168.44.77:8848
-  zipkin:
-    base-url: http://192.168.44.77:9411 # Zipkin服务端地址
-    discovery-client-enabled: false # 不向Nacos注册此服务
-  sleuth:
-    sampler:
-      probability: 1.0 # 采样的百分比设置为100%采样
-
-# MP配置
-mybatis-plus:
-  type-aliases-package: com.alibaba.entity
-  configuration:
-    map-underscore-to-camel-case: true
-    cache-enabled: true
-    lazy-loading-enabled: true
-    aggressive-lazy-loading: false
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+## 基本配置
+#server:
+#  port: 8020
+#spring:
+#  application:
+#    name: alibaba-product
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://192.168.44.77:3306/alibaba?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+#    username: root
+#    password: root
+#  #    type: com.alibaba.druid.pool.DruidDataSource
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.44.77:8848
+#  zipkin:
+#    base-url: http://192.168.44.77:9411 # Zipkin服务端地址
+#    discovery-client-enabled: false # 不向Nacos注册此服务
+#  sleuth:
+#    sampler:
+#      probability: 1.0 # 采样的百分比设置为100%采样
+#
+## MP配置
+#mybatis-plus:
+#  type-aliases-package: com.alibaba.entity
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    cache-enabled: true
+#    lazy-loading-enabled: true
+#    aggressive-lazy-loading: false
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

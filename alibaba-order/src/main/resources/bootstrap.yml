@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: alibaba-order # 微服务名
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml # NacosConfig配置文件后缀
+        server-addr: 192.168.44.77:8848 # NacosConfig配置中心地址
+  profiles:
+    active: dev # 当前开发环境
+
+logging:
+  level:
+    com.alibaba.nacos.client.naming: warn # 忽略NacosConfig无限心跳检测日志，可选

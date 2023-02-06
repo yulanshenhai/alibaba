@@ -1,0 +1,4 @@
+GET http://localhost:8020/api/v1/nacos-config/get-author
+Accept: application/json
+
+###

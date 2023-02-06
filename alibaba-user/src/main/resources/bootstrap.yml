@@ -7,7 +7,7 @@ spring:
         file-extension: yaml # NacosConfig配置文件后缀
         server-addr: 192.168.44.77:8848 # NacosConfig配置中心地址
   profiles:
-    active: dev # 当前开发环境
+    active: prod # 当前开发环境
 
 logging:
   level:

@@ -18,8 +18,16 @@ public class NacosConfigController {
     @Value("${project.author}")
     private String author;
 
+    @Value("${project.env}")
+    private String env;
+
     @GetMapping("/get-author")
     public String getAuthor() {
         return author;
+    }
+
+    @GetMapping("/get-env")
+    public String getEnv() {
+        return env;
     }
 }

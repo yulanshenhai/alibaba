@@ -6,6 +6,8 @@ spring:
       config:
         file-extension: yaml # NacosConfig配置文件后缀
         server-addr: 192.168.44.77:8848 # NacosConfig配置中心地址
+        shared-dataids: app-comm.yaml # 配置跨服务共享配置文件名
+        refreshable-dataids: app-comm.yaml # 配置动态刷新跨服务共享配置文件
   profiles:
     active: dev # 当前开发环境
 

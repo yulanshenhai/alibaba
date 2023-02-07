@@ -1,13 +1,16 @@
 package com.xiao.service.impl;
 
-import com.xiao.feign.ProductFeign;
-import com.xiao.mapper.OrderMapper;
-import com.xiao.service.OrderService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xiao.entity.Order;
 import com.xiao.entity.Product;
+import com.xiao.feign.ProductFeign;
+import com.xiao.mapper.OrderMapper;
+import com.xiao.param.OrderInsertParam;
+import com.xiao.service.OrderService;
 import com.xiao.util.JacksonUtil;
 import com.xiao.util.Result;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import io.seata.spring.annotation.GlobalTransactional;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,11 +27,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     @Autowired
     private ProductFeign productFeign;
 
+    @GlobalTransactional(rollbackFor = Exception.class)
     @Override
-    public int insert(Order order) {
+    public int insert(OrderInsertParam orderInsertParam) {
 
         // 获取商品主键
-        Integer productId = order.getProductId();
+        Integer productId = orderInsertParam.getProductId();
 
         // 调用商品微服务的的 `按主键查询商品信息` 方法
         Result result = productFeign.selectById(productId);
@@ -39,7 +43,9 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         // 将结果中的Product实体数据解析出来
         Product product = JacksonUtil.parseData(result.getData(), Product.class);
 
-        // 填充实体类
+        // 构建Order实体
+        Order order = new Order();
+        BeanUtils.copyProperties(orderInsertParam, order);
         order.setProductName(product.getProductName());
 
         // 调用添加订单的数据方法

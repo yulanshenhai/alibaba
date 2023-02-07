@@ -1,5 +1,6 @@
 package com.xiao.service;
 
+import com.xiao.param.OrderInsertParam;
 import com.xiao.entity.Order;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -10,12 +11,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface OrderService extends IService<Order> {
 
     /**
-     * 添加一条订单记录
+     * 添加一条Order表记录
      *
-     * @param order 订单实体
+     * @param orderInsertParam 添加订单业务实体参数
      * @return 影响条目数
      */
-    int insert(Order order);
+    int insert(OrderInsertParam orderInsertParam);
 
 }
-

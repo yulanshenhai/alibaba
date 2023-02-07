@@ -6,11 +6,31 @@ spring:
       config:
         file-extension: yaml # NacosConfig配置文件后缀
         server-addr: 192.168.44.77:8848 # NacosConfig配置中心地址
-        shared-dataids: app-comm.yaml # 配置跨服务共享配置文件名
-        refreshable-dataids: app-comm.yaml # 配置动态刷新跨服务共享配置文件
+        shared-configs:
+          - data-id: app-comm.yaml # 配置文件名-Data Id
+            refresh: true   # 是否动态刷新，默认为false
+    alibaba:
+      seata:
+        tx-service-group: default_tx_group
   profiles:
     active: dev # 当前开发环境
 
 logging:
   level:
     com.alibaba.nacos.client.naming: warn # 忽略NacosConfig无限心跳检测日志，可选
+
+seata:
+  service:
+    disable-global-transaction: false
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 192.168.44.77:8848
+      namespace: 1c630f46-26b2-41d3-b436-62ad89bf828d
+      cluster: default
+  config:
+    type: nacos
+    nacos:
+      server-addr: 192.168.44.77:8848
+      namespace: 1c630f46-26b2-41d3-b436-62ad89bf828d

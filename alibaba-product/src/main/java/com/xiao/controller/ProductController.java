@@ -1,8 +1,9 @@
 package com.xiao.controller;
 
-import com.xiao.server.ProductService;
 import com.xiao.entity.Product;
+import com.xiao.service.ProductService;
 import com.xiao.util.Result;
+import io.seata.core.exception.TransactionException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +30,7 @@ public class ProductController {
 
     @PostMapping("/reduce-inventory")
     public Result reduceInventory(@RequestParam Integer id,
-                                  @RequestParam Integer number) {
+                                  @RequestParam Integer number) throws TransactionException {
         log.info("请求：扣减 {} 号商品的库存，扣减 {} 个", id, number);
         int reduceResult = productService.reduceInventory(id, number);
         log.info(reduceResult > 0 ? "扣减成功" : "扣减失败");
@@ -37,5 +38,3 @@ public class ProductController {
     }
 
 }
-
-

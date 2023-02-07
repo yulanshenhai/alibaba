@@ -3,11 +3,11 @@ package com.xiao.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xiao.entity.User;
 import com.xiao.mapper.UserMapper;
 import com.xiao.param.UserUpdateParam;
 import com.xiao.service.UserService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +25,10 @@ import java.util.List;
  * @since 2022-10-25
  */
 @Slf4j
+/**
+ * <p>DubboService注解: 用于对外暴露服务
+ * <p>version = "1.0.0": 建议指定服务的版本
+ * */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
@@ -33,6 +37,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public List<User> selectLikeUsername(String username) {
+
+        if (StringUtils.isBlank(username)) {
+            throw new RuntimeException("必要参数为空");
+        }
+
         // 构建查询条件包装器
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         // 构建查询条件

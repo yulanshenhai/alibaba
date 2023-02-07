@@ -1,8 +1,8 @@
 package com.xiao.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.xiao.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiao.entity.User;
 import com.xiao.param.UserUpdateParam;
 
 import java.util.List;

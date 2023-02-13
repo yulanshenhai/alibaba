@@ -12,6 +12,7 @@
         <module>alibaba-gateway</module>
         <module>alibaba-rocketmq</module>
         <module>alibaba-rabbitmq</module>
+        <module>alibaba-spring-security</module>
     </modules>
 
     <!--父项目-->

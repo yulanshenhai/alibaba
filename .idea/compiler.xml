@@ -12,6 +12,7 @@
         <module name="alibaba-common" />
         <module name="alibaba-order" />
         <module name="alibaba-gateway" />
+        <module name="alibaba-spring-security" />
         <module name="alibaba-product" />
         <module name="alibaba-rabbitmq" />
       </profile>
@@ -29,6 +30,7 @@
       <module name="alibaba-rabbit" options="-parameters" />
       <module name="alibaba-rabbitmq" options="-parameters" />
       <module name="alibaba-rocketmq" options="-parameters" />
+      <module name="alibaba-spring-security" options="-parameters" />
       <module name="alibaba-user" options="-parameters" />
       <module name="yulanshenhai-alibaba" options="" />
     </option>

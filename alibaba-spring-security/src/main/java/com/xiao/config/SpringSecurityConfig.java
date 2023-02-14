@@ -1,11 +1,13 @@
 package com.xiao.config;
 
+import com.xiao.handler.MyAccessDeniedHandler;
 import com.xiao.handler.MyAuthenticationFailureHandler;
 import com.xiao.handler.MyAuthenticationSuccessHandler;
 import com.xiao.handler.MyLogoutSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,6 +22,7 @@ import javax.sql.DataSource;
  * @author xiao
  */
 @Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -79,16 +82,24 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 // token仓库
                 .tokenRepository(persistentTokenRepository());
 
+        // 自定义异常处理器
+        http.exceptionHandling()
+                // 权限不足时，执行MyAccessDeniedHandler处理器
+                .accessDeniedHandler(new MyAccessDeniedHandler());
+
     }
 
     /**
-     * 重写SpringSecurity登录逻辑时，Spring容器中必须存在一个 `PasswordEncoder` 的Bean实例
+     * 重写SpringSecurity登录逻辑时需要
      */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * 使用RememberMe功能时需要
+     */
     @Bean
     public PersistentTokenRepository persistentTokenRepository() {
         JdbcTokenRepositoryImpl jdbcTokenRepository = new JdbcTokenRepositoryImpl();

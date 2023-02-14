@@ -109,7 +109,9 @@ values (1, 'admin', 1, '海尔冰箱', 2, now(), now());
 insert into alibaba.member
 values (1, 'zhaosi', 'zhaosi', '亚洲舞王', '赵国强', now(), now()),
        (2, 'liuneng', 'liuneng', '象牙山小诸葛', '刘能', now(), now()),
-       (3, 'guangkun', 'guangkun', '首富', '赵国强', now(), now());
+       (3, 'guangkun', 'guangkun', '首富', '谢广坤', now(), now()),
+       (4, 'xiyangyang', 'xiyangyang', '王子', '喜羊羊', now(), now()),
+       (5, 'meiyangyang', 'meiyangyang', '公主', '美羊羊', now(), now());
 ## role
 insert into alibaba.role
 values (1, 'root', '超级用户', now(), now()),
@@ -127,7 +129,9 @@ values (1, 'insert', 'DML添加权限', now(), now()),
 insert into alibaba.member_role
 values (1, 1, 1, now(), now()),
        (2, 2, 2, now(), now()),
-       (3, 3, 3, now(), now());
+       (3, 3, 3, now(), now()),
+       (4, 4, 4, now(), now()),
+       (5, 5, 5, now(), now());
 ## role_permission
 insert into alibaba.role_permission
 values (1, 1, 1, now(), now()),
@@ -140,6 +144,8 @@ values (1, 1, 1, now(), now()),
        (8, 2, 2, now(), now()),
        (9, 2, 3, now(), now()),
        (10, 2, 4, now(), now()),
-       (11, 3, 2, now(), now());
+       (11, 3, 2, now(), now()),
+       (12, 4, 2, now(), now()),
+       (13, 5, 2, now(), now());
 commit;
 

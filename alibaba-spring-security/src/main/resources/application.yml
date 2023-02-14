@@ -10,6 +10,8 @@ spring:
     username: root # 连库账号
     password: root # 连库密码
     type: com.alibaba.druid.pool.DruidDataSource # Druid连接池
+  resources:
+    static-locations: classpath:/templates/,classpath:/static/ # 静态资源目录
 
 mybatis-plus:
   type-aliases-package: com.xiao.entity # 实体类别名包扫描

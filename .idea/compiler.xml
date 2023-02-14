@@ -14,10 +14,13 @@
         <module name="alibaba-gateway" />
         <module name="alibaba-spring-security" />
         <module name="alibaba-product" />
+        <module name="alibaba-mybatis-plus" />
         <module name="alibaba-rabbitmq" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="alibaba-mybatis-plus (1)" target="11" />
+      <module name="alibaba-mybatis-plus (2)" target="11" />
       <module name="alibaba-rabbit" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -25,6 +28,9 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="alibaba-common" options="-parameters" />
       <module name="alibaba-gateway" options="-parameters" />
+      <module name="alibaba-mybatis-plus" options="-parameters" />
+      <module name="alibaba-mybatis-plus (1)" options="-parameters" />
+      <module name="alibaba-mybatis-plus (2)" options="-parameters" />
       <module name="alibaba-order" options="-parameters" />
       <module name="alibaba-product" options="-parameters" />
       <module name="alibaba-rabbit" options="-parameters" />

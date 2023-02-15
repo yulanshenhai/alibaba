@@ -1,0 +1,19 @@
+
+
+###
+
+# 使用浏览器客户端向授权服务器发送请求: 携带授权许可和授权码，返回Token令牌
+# 使用 `Authorization` 验证客户端ID和密钥: 需要 `Basic` 前缀
+POST http://localhost:8040/oauth/token
+Authorization: Basic my-client-id my-client-secret
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code&client_id=my-client-id&scope=all&redirect_uri=http://www.baidu.com&code=qiCLnl
+
+###
+
+# 使用浏览器客户端向资源服务器发送请求: 携带Token令牌，返回受保护的资源
+# 使用 `Authorization:` 指定Token令牌: 需要 `Bearer` 前缀
+GET http://localhost:8040/api/v1/member/get-auth
+Authorization: Bearer a2a4ac9d-92c3-4c10-9218-f25e8ae1d217
+Accept: application/json

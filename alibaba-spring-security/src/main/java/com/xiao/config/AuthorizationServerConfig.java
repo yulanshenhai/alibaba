@@ -7,6 +7,7 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
@@ -27,7 +28,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //    @Autowired
 //    private TokenStore redisTokenStore;
 
-
     @Autowired
     private JwtAccessTokenConverter jwtAccessTokenConverter;
 
@@ -39,6 +39,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+
         // 设置Token的存储方式为Redis存储
         // endpoints.tokenStore(redisTokenStore);
 
@@ -72,10 +73,19 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 // 开启自动授权: 否则需要在浏览器手动点击授权按钮
                 .autoApprove(true)
                 // 配置授权成功后跳转的路径
-                .redirectUris("http://www.baidu.com")
+                .redirectUris("http://localhost:8010/login")
                 // 配置申请的权限范围
                 .scopes("all")
                 // 配置授权类型为授权码类型并启用refreshToken功能
                 .authorizedGrantTypes("authorization_code", "refresh_token");
+    }
+
+    /**
+     * 整合SSO功能，必须重写该方法，并进行 `isAuthenticated` 身份认证
+     */
+    @Override
+    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+        // 获取密钥需要身份认证，使用SSO必须配置
+        security.tokenKeyAccess("isAuthenticated()");
     }
 }

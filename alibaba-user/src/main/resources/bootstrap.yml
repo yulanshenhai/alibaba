@@ -6,11 +6,29 @@ spring:
       config:
         file-extension: yaml # NacosConfig配置文件后缀
         server-addr: 192.168.44.77:8848 # NacosConfig配置中心地址
-        shared-dataids: app-comm.yaml # 配置跨服务共享配置文件名
-        refreshable-dataids: app-comm.yaml # 配置动态刷新跨服务共享配置文件
+        shared-configs:
+          - data-id: app-comm.yaml # 配置文件名-Data Id
+            refresh: true   # 是否动态刷新，默认为false
   profiles:
     active: dev # 当前开发环境
 
 logging:
   level:
     com.alibaba.nacos.client.naming: warn # 忽略NacosConfig无限心跳检测日志，可选
+
+server:
+  servlet:
+    session:
+      cookie:
+        name: OAUTH2-CLIENT-SESSION-ID-001 # 防止Cookie冲突导致验证失败
+
+security:
+  oauth2:
+    client:
+      client-id: my-client-id # 凭证ID
+      client-secret: my-client-secret # 凭证密钥
+      user-authorization-uri: http://localhost:8040/oauth/authorize # 认证地址
+      access-token-uri: http://localhost:8040/oauth/token # 访问Token的地址
+    resource:
+      jwt:
+        key-uri: http://localhost:8040/oauth/token_key # JWT的Token_Key地址

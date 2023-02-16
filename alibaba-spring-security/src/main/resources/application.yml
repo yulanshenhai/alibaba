@@ -12,6 +12,8 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource # Druid连接池
   resources:
     static-locations: classpath:/templates/,classpath:/static/ # 静态资源目录
+  redis:
+    host: 192.168.44.77
 
 mybatis-plus:
   type-aliases-package: com.xiao.entity # 实体类别名包扫描

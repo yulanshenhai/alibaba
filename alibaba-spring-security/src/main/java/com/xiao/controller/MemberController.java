@@ -32,4 +32,10 @@ public class MemberController {
     public Object getAuth(Authentication authentication) {
         return authentication.getPrincipal();
     }
+
+    @GetMapping("get-current-member")
+    public Object getCurrentMember(Authentication authentication) {
+        return authentication.getPrincipal();
+    }
+
 }

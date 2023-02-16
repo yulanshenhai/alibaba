@@ -6,6 +6,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.provider.token.TokenStore;
 
 /**
  * 授权服务器的配置
@@ -18,7 +20,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-
+    @Autowired
+    private TokenStore redisTokenStore;
+    @Override
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+        endpoints.tokenStore(redisTokenStore);
+    }
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         // 将配置存储在内存中
@@ -40,4 +47,5 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 // 配置授权类型为授权码类型和refreshToken
                 .authorizedGrantTypes("authorization_code", "refresh_token");
     }
+
 }

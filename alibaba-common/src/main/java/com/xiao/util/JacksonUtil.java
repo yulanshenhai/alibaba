@@ -7,9 +7,11 @@ import lombok.SneakyThrows;
 
 import java.security.InvalidParameterException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * @author JoeZhou
+ * @author xiao
  */
 @Data
 public class JacksonUtil {
@@ -17,7 +19,7 @@ public class JacksonUtil {
     private static final String DATE_PATTERN = "yyyy/MM/dd hh:mm:ss";
 
     /**
-     * 将响应数据格式化为JSON字符串，null值忽略，时间类型使用 `yyyy/MM/dd hh:mm:ss` 格式。
+     * 将响应数据格式转化为JSON字符串，null值忽略，时间类型使用 `yyyy/MM/dd hh:mm:ss` 格式。
      *
      * @param data 响应数据
      * @return 格式化后的字符串
@@ -62,6 +64,22 @@ public class JacksonUtil {
      */
     public static <T> T parseData(Object data, Class<T> c) {
         return parse(format(data), c);
+    }
+
+    /**
+     * 将Object类型的数据解析为指定类型的数据
+     *
+     * @param data 待解析数据，其本质要求为List类型
+     * @param c    指定的类型的class对象
+     * @param <T>  指定的List泛型
+     * @return 解析后的List类型数据
+     */
+    @SuppressWarnings("all")
+    public static <T> List<T> parseDataToList(Object data, Class<T> genericClass) {
+        List<T> result = new ArrayList<>();
+        List dataList = (List)data;
+        dataList.forEach(e -> result.add(parse(format(e), genericClass)));
+        return result;
     }
 
 }

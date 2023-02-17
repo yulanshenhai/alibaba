@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="fastRequestCurrentProjectConfig">
-    <option name="domain" value="localhost:8030" />
+    <option name="domain" value="localhost:8010" />
     <option name="enableEnv" value="测试" />
-    <option name="enableProject" value="alibaba-order" />
+    <option name="enableProject" value="alibaba-user" />
   </component>
 </project>

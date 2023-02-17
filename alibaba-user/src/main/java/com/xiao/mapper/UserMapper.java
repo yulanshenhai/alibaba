@@ -1,7 +1,7 @@
 package com.xiao.mapper;
 
-import com.xiao.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.xiao.entity.User;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
  * 用户表 Mapper 接口
  * </p>
  *
- * @author ${author}
- * @since 2022-10-23
+ * @author xiao
+ * @since 2023-02-16
  */
 @Repository
 public interface UserMapper extends BaseMapper<User> {

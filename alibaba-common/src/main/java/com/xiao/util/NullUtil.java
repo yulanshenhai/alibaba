@@ -1,27 +1,11 @@
 package com.xiao.util;
 
-import org.apache.commons.lang3.StringUtils;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 
 /**
- * @author JoeZhou
+ * @author xiao
  */
 public class NullUtil {
-
-    public static boolean isNull(Object param){
-        return param == null;
-    }
-
-    public static boolean isNotNull(Object param){
-        return param != null;
-    }
-
-    public static boolean isBlank(String param){
-        return StringUtils.isBlank(param);
-    }
-
-    public static boolean isNotBlank(String param){
-        return !StringUtils.isBlank(param);
-    }
 
     public static boolean hasBlank(String... params) {
         for (String param : params) {
@@ -41,4 +25,3 @@ public class NullUtil {
         return false;
     }
 }
-

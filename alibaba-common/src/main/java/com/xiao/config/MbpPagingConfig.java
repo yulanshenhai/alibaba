@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author JoeZhou
+ * @author xiao
  */
 @Configuration
-public class MpPagingConfig {
+public class MbpPagingConfig {
 
     /**
      * 管理 [Mp的拦截器]

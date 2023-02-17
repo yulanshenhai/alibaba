@@ -8,7 +8,6 @@ import com.xiao.entity.User;
 import com.xiao.mapper.UserMapper;
 import com.xiao.param.UserUpdateParam;
 import com.xiao.service.UserService;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,18 +21,25 @@ import java.util.List;
  * </p>
  *
  * @author xiao
- * @since 2022-10-25
+ * @since 2023-02-16
  */
-@Slf4j
-/**
- * <p>DubboService注解: 用于对外暴露服务
- * <p>version = "1.0.0": 建议指定服务的版本
- * */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Override
+    public User selectByUsername(String username) {
+        if (StringUtils.isBlank(username)) {
+            throw new RuntimeException("必要参数为空");
+        }
+        // 构建查询条件包装器
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        // 构建查询条件
+        queryWrapper.eq("username", username);
+        return userMapper.selectOne(queryWrapper);
+    }
 
     @Override
     public List<User> selectLikeUsername(String username) {
@@ -61,7 +67,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         // 构建User参数：账号只作为修改条件而不参与修改，主键不参与修改
         User user = new User();
         user.setUsername(null);
-        user.setId(null);
+        user.setUserId(null);
 
         // 构建修改条件包装器
         UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();

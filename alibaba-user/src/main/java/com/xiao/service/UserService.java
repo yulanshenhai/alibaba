@@ -8,14 +8,24 @@ import com.xiao.param.UserUpdateParam;
 import java.util.List;
 
 /**
+ * <p>
+ * 用户表 服务类
+ * </p>
+ *
  * @author xiao
- * @since 2022-10-25
+ * @since 2023-02-16
  */
 public interface UserService extends IService<User> {
 
     /**
+     * 通过账号来精准查询用户记录
+     * @param username 账号
+     * @return 符合条件的用户记录
+     */
+    User selectByUsername(String username);
+
+    /**
      * 通过账号来模糊查询用户记录
-     *
      * @param username 账号
      * @return 符合条件的用户记录
      */

@@ -7,42 +7,36 @@ import com.xiao.constant.Format;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  * <p>
- * 商品表
+ * 角色表
  * </p>
  *
  * @author xiao
  * @since 2023-02-16
  */
 @Data
-public class Product implements Serializable {
+public class Role implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 主键
+     * 角色表主键
      */
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    @TableId(value = "role_id", type = IdType.AUTO)
+    private Integer roleId;
 
     /**
-     * 商品名
+     * 角色名称
      */
-    private String productName;
+    private String roleTitle;
 
     /**
-     * 商品价格
+     * 角色描述
      */
-    private BigDecimal productPrice;
-
-    /**
-     * 商品库存
-     */
-    private Integer productStock;
+    private String roleInfo;
 
     /**
      * 首次创建时间
@@ -55,4 +49,6 @@ public class Product implements Serializable {
      */
     @JsonFormat(pattern= Format.Date, timezone = Format.Timezone)
     private Date lastModify;
+
+
 }

@@ -12,6 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * <p>EnableDiscoveryClient：启动Nacos功能
  * <p>MapperScan：扫描Mapper类
  * <p>SpringBootApplication：启动注解
+ * <p>EnableFeignClients：扫描Feign接口
  */
 @EnableDiscoveryClient
 @SpringBootApplication

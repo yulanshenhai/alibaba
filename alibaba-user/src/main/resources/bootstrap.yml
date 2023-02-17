@@ -16,19 +16,19 @@ logging:
   level:
     com.alibaba.nacos.client.naming: warn # 忽略NacosConfig无限心跳检测日志，可选
 
-server:
-  servlet:
-    session:
-      cookie:
-        name: OAUTH2-CLIENT-SESSION-ID-001 # 防止Cookie冲突导致验证失败
-
-security:
-  oauth2:
-    client:
-      client-id: my-client-id # 凭证ID
-      client-secret: my-client-secret # 凭证密钥
-      user-authorization-uri: http://localhost:8040/oauth/authorize # 认证地址
-      access-token-uri: http://localhost:8040/oauth/token # 访问Token的地址
-    resource:
-      jwt:
-        key-uri: http://localhost:8040/oauth/token_key # JWT的Token_Key地址
+#server:
+#  servlet:
+#    session:
+#      cookie:
+#        name: OAUTH2-CLIENT-SESSION-ID-001 # 防止Cookie冲突导致验证失败
+#
+#security:
+#  oauth2:
+#    client:
+#      client-id: my-client-id # 凭证ID
+#      client-secret: my-client-secret # 凭证密钥
+#      user-authorization-uri: http://localhost:8040/oauth/authorize # 认证地址
+#      access-token-uri: http://localhost:8040/oauth/token # 访问Token的地址
+#    resource:
+#      jwt:
+#        key-uri: http://localhost:8040/oauth/token_key # JWT的Token_Key地址

@@ -2,18 +2,21 @@ package com.xiao.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.xiao.constant.Format;
 import lombok.Data;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
  * 订单表
  * </p>
  *
- * @author ${author}
- * @since 2022-10-23
+ * @author xiao
+ * @since 2023-02-16
  */
 @Data
 @TableName("`order`")
@@ -28,7 +31,7 @@ public class Order implements Serializable {
     private Integer id;
 
     /**
-     * 下单账户
+     * 下单用户名
      */
     private String username;
 
@@ -47,5 +50,15 @@ public class Order implements Serializable {
      */
     private Integer number;
 
+    /**
+     * 首次创建时间
+     */
+    @JsonFormat(pattern= Format.Date, timezone = Format.Timezone)
+    private Date createTime;
 
+    /**
+     * 最后修改时间
+     */
+    @JsonFormat(pattern= Format.Date, timezone = Format.Timezone)
+    private Date lastModify;
 }

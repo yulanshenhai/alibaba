@@ -1,0 +1,17 @@
+server:
+  port: 5111 # 端口号
+spring:
+  application:
+    name: provider # 项目名
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.44.77:8848 # Nacos地址
+dubbo:
+  protocol:
+    name: dubbo # 使用dubbo协议，默认
+    port: -1 # 自增内部通信端口
+  registry:
+    address: nacos://192.168.44.77:8848 # Nacos地址
+  scan:
+    base-packages: com.xiao.service.impl # 注解包扫描

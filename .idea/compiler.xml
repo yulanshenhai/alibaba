@@ -7,15 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="common-api" />
         <module name="alibaba-rocketmq" />
         <module name="alibaba-user" />
         <module name="alibaba-common" />
+        <module name="provider" />
         <module name="alibaba-order" />
         <module name="alibaba-gateway" />
         <module name="alibaba-spring-security" />
         <module name="alibaba-product" />
         <module name="alibaba-mybatis-plus" />
         <module name="alibaba-rabbitmq" />
+        <module name="consumer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -27,6 +30,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="alibaba-common" options="-parameters" />
+      <module name="alibaba-dubbo" options="" />
       <module name="alibaba-gateway" options="-parameters" />
       <module name="alibaba-mybatis-plus" options="-parameters" />
       <module name="alibaba-mybatis-plus (1)" options="-parameters" />
@@ -38,6 +42,9 @@
       <module name="alibaba-rocketmq" options="-parameters" />
       <module name="alibaba-spring-security" options="-parameters" />
       <module name="alibaba-user" options="-parameters" />
+      <module name="common-api" options="-parameters" />
+      <module name="consumer" options="-parameters" />
+      <module name="provider" options="-parameters" />
       <module name="yulanshenhai-alibaba" options="" />
     </option>
   </component>

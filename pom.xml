@@ -14,6 +14,7 @@
         <module>alibaba-gateway</module>
         <module>alibaba-spring-security</module>
         <module>alibaba-mybatis-plus</module>
+        <module>alibaba-dubbo</module>
     </modules>
 
     <!--父项目-->
